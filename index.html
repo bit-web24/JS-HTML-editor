@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Htmleditor</title>
+        <style rel="stylesheet">
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            body {
+                background-color: rgb(55,55,55);
+            }
+
+            #input {
+                height: 900px;
+                width: 45%;
+                border: 2px solid rgb(0, 191, 255);
+                padding: 20px;
+                font-family: monospace;
+                font-size: 19px;
+                background-color: rgb(8, 21, 5);
+                color: rgb(40, 136, 2);
+                overflow-x: scroll;
+                overflow-y: scroll;
+            }
+
+            #output {
+                height: 934px;
+                width: 51%;
+               border: 2px solid rgb(0, 191, 255);
+                padding: 5px;
+                float: right;
+                font-size: 17px;
+                position: fixed;
+                right: 5px;
+                top: 8px;
+                overflow: scroll;
+                background-color: white;
+       
+            }
+        </style>
+    </head>
+    <body>
+        <textarea id="input" oninput="run()">
+            <html>
+                <head>
+                    <title>Untitled</title>
+                    <style rel="stylesheet" type="text/css"></style>
+                </head>
+                <body></body>
+            </html>
+        </textarea>
+        <div id="output"></div>
+        <script type="text/javascript">
+            function run() {
+                var a = document.getElementById('input').value;
+                document.getElementById('output').innerHTML = a;
+                var x = document.querySelector('#input').children[0].children[0].children[1].innerText;
+                var y = document.querySelector('html').children[0].children[1].innerText;
+                y.concat(x);
+                document.querySelector('html').children[0].children[1].innerText = y;
+
+            }
+        </script>
+    </body>
+</html>
